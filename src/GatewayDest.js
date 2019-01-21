@@ -36,7 +36,8 @@ export default class GatewayDest extends React.Component {
 
   render() {
     const { component, tagName, ...attrs } = this.props;
+    const { children } = this.state;
     delete attrs.name;
-    return React.createElement(component || tagName || 'div', attrs, this.state.children);
+    return children && React.createElement(component || tagName || 'div', attrs, children);
   }
 }
